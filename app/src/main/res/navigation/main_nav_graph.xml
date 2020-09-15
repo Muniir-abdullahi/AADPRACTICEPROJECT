@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.aadpracticeproject.views.MainFragment"
+        android:label=""
+        tools:layout="@layout/fragment_main" >
+
+        <action
+            android:id="@+id/to_submissionFragment"
+            app:destination="@id/submissionFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/submissionFragment"
+        android:name="com.example.aadpracticeproject.views.SubmissionFragment"
+        android:label=""
+        tools:layout="@layout/fragment_submission" >
+        <action
+            android:id="@+id/to_areYouSureDialogFragment"
+            app:destination="@id/areYouSureDialogFragment" />
+        <action
+            android:id="@+id/to_dialogSubmissionNotSuccessfulFragment"
+            app:destination="@id/dialogSubmissionNotSuccessfulFragment" />
+        <action
+            android:id="@+id/to_dialogSubmissionSuccessfulFragment"
+            app:destination="@id/dialogSubmissionSuccessfulFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/areYouSureDialogFragment"
+        android:name="com.example.aadpracticeproject.views.dialogs.AreYouSureDialogFragment"
+        android:label=""
+        tools:layout="@layout/fragment_are_you_sure_dialog" >
+        <action
+            android:id="@+id/to_dialogSubmissionNotSuccessfulFragment"
+            app:destination="@id/dialogSubmissionNotSuccessfulFragment" />
+        <action
+            android:id="@+id/to_dialogSubmissionSuccessfulFragment"
+            app:destination="@id/dialogSubmissionSuccessfulFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/dialogSubmissionNotSuccessfulFragment"
+        android:name="com.example.aadpracticeproject.views.dialogs.DialogSubmissionNotSuccessfulFragment"
+        android:label=""
+        tools:layout="@layout/fragment_dialog_submission_not_successful" />
+    <dialog
+        android:id="@+id/dialogSubmissionSuccessfulFragment"
+        android:name="com.example.aadpracticeproject.views.dialogs.DialogSubmissionSuccessfulFragment"
+        android:label=""
+        tools:layout="@layout/fragment_dialog_submission_successful" >
+        <action
+            android:id="@+id/to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </dialog>
+</navigation>
